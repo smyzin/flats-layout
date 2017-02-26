@@ -1,0 +1,56 @@
+.vueApp__right_tabs
+	width: 100%
+	display: inline-block
+
+.tabsBlock
+	width: 100%
+	list-style: none
+	margin: 0
+	padding: 0
+	&__tab
+		background: #f7f9fa
+		width: 49%
+		display:inline-block
+		text-align: center
+		& a
+			padding: 20px 110px
+			display: block
+			font-size:16px
+			color:#4c4c4c
+			transition:all linear 0.15s
+			text-decoration:none
+			display:block
+			// width: 49%
+			text-align: center
+
+.active
+	background: #fff
+
+.vueApp__right_tabContent
+	display: block
+	position: relative
+	background: #f7f9fa
+
+.tabContent
+	&__block
+		display: block
+		background: #fff
+		width: 100%
+		padding: 25px 0
+		position: relative
+		text-align: right
+		clear: both
+		&_tags
+			text-align: left
+			display: inline-block
+			float: left
+			margin-left: 20px
+		& span
+			position: inherit
+			font-size: 13px
+			color: rgb(40, 55, 62)
+			line-height: 1.846
+			margin-right: 60px
+	&__flat
+		position: inherit
+		text-align: center

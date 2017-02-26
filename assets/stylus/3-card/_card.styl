@@ -1,0 +1,45 @@
+.card
+	display: inline-block
+	position: relative
+	margin: 10px 7px
+	max-width: 435px
+	padding: 5px 11px 13px 11px
+	&:hover
+		cursor: pointer
+	&__img
+		width: 415px
+		height: 325px
+		position: relative;
+		background-position: center
+		background-size: cover
+		margin: 0 auto
+		border-radius: 11px
+		transition: all .8s ease-in-out
+		overflow: hidden
+		&:hover
+			opacity: .8
+			transform: scale(1.03)
+			box-shadow: 2px 3px 10px rgba(0,0,0,0.7)
+		&_title
+			font-size: 16px
+			color: rgb(255, 255, 255)
+			line-height: 1.25
+			text-align: left
+			position: absolute
+			bottom: 0
+			left: 13px
+			z-index: 110
+		&_price
+			color: rgb(255, 255, 255)
+			line-height: 1.2
+			overflow: hidden
+			position: absolute
+			bottom: 0
+			right: 15px
+.price__euro
+	font-size: 14px
+
+.price__num
+	font-size: 24px
+
+

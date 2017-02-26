@@ -1,0 +1,121 @@
+<html>
+<head>
+	<title>Accommodation task</title>
+	<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"/>
+	<link href="public/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="public/css/style.css">
+
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+	<header class="header">
+		<div class="header__logo">
+			<img src="public/img/logo.png" alt="logo" class="header__logo_img">
+		</div>
+		<div class="header__button">
+			<a href="#">List your property</a>
+		</div>
+	</header>
+
+	<div class="vueApp">
+		<div class="vueApp__left">
+			<div class="amenities">
+				<a href="#" id="popular" title="Aminities" class="items__title notClickable"><img src="public/img/minus.png">Amenities</a>
+			</div>
+			<div class="searchBox">
+				<span class="searchBox__title">Amenities search</span>
+				<input type="text" class="searchBox__input" id='searchBox' v-bind:value="checkedAttr" readonly>
+			</div>
+			<div class="facilitie">
+				<div class="facilitie__items">
+					<a href="#" id="popular" @click.prevent="offsetPop = 12; slideContent()" title="Popular" class="items__title"><img src="public/img/plus.png">Popular amenities</a>
+					<div class="items__block" v-for="(checkbox, index) of popular">
+						<input type="checkbox" class="items__block_checkbox" v-if="index <= offsetPop" v-bind:id='checkbox.id' v-bind:value='checkbox.facilitie' @click='checkCheckbox' v-model="checkedAttr">
+						<label class="items__block_label" v-if="index <= offsetPop" v-bind:for="checkbox.id">{{checkbox.facilitie}}</label>
+					</div>
+				</div>
+				<hr class="facilitie__sep">
+				<div class="facilitie__items">
+					<a href="#" id="apartment" @click.prevent="slideContent()" class="items__title">Apartment</a>
+					<div class="items__block" v-for="(checkbox, index) in apartment">
+						<input type="checkbox" class="items__block_checkbox" v-bind:id='checkbox.id' v-bind:value='checkbox.facilitie' @click='checkCheckbox' v-model="checkedAttr">
+						<label class="items__block_label" v-bind:for="checkbox.id">{{checkbox.facilitie}}</label>
+					</div>
+				</div>
+				<hr class="facilitie__sep">
+				<div class="facilitie__items">
+					<a href="#" id="kitchen" @click.prevent="offsetKit = 12; slideContent()" title="Kitchen" class="items__title"><img src="public/img/plus.png">Kitchen</a>
+					<div class="items__block" v-for="(checkbox, index) in kitchen">
+						<input type="checkbox" v-if="index <= offsetKit" class="items__block_checkbox" v-bind:id='checkbox.id' v-bind:value='checkbox.facilitie' @click='checkCheckbox' v-model="checkedAttr">
+						<label class="items__block_label" v-if="index <= offsetKit" v-bind:for="checkbox.id">{{checkbox.facilitie}}</label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="vueApp__right">
+			<div class="vueApp__right_tabs">
+				<ul class="tabsBlock">
+					<li class="tabsBlock__tab" @click.prevent='location = true, showTab();'><a class="tabsBlock__tab_map" href="#">Map</a></li>
+					<li class="tabsBlock__tab active" @click.prevent='location = false, showTab();'><a class="tabsBlock__tab_accommo" href="#">Accommodations</a></li>
+				</ul>
+			</div>
+			<div class="vueApp__right_tabContent">
+				<div class="tabContent__block">
+					<span v-if="offersNum >= 2">{{offersNum}} offers</span>
+					<span v-else-if="offersNum == 1">{{offersNum}} offer</span>
+					<span v-else>There is no offers :_(</span>
+				</div>
+
+				<transition>
+					<div class="tabContent__flat" v-if="location == false">
+						<transition-group tag="div" name="fade">
+							<div class='card' v-for="flat in flats" :key="flat.id" @click='openMap()' v-if='flat.show == true'>
+
+								<div class='card__img' v-bind:style="flat.style" v-bind = "{'location-lat': flat.location.lat, 'location-lng': flat.location.lng, 'price': flat.price, title: flat.title}">
+									<p class='card__img_title'>{{flat.title}}</p>
+									<p class='card__img_price'>
+										<sup class="price__euro"><small>€</sup></small>
+										<span class="price__num">{{flat.price}}</span>
+									</p>
+								</div>
+							</div>
+						</transition>
+					</div>
+					<div class="tabContent__map" v-else>
+						<div id="map" style="height: 550px;" v-if="location"></div>
+					</div>
+				</transition>
+
+			</div>
+
+		</div>
+	</div>
+
+	<footer>
+		<div class="credit">
+			<div class="credit__contact">
+				<a href="https://t.me/smyzin" class="credit__contact_telegram mdi mdi-telegram mdi-36px mdi-light" target="_blank" style="color: #2CA5E0;"></a>
+				<a href="https://github.com/smyzin" class="credit__contact_github mdi mdi-github-circle mdi-36px" target="_blank" style="color: #494747;"></a>
+				<a href="https://codepen.io/therealnorman/" class="credit__contact_codepen mdi mdi-codepen mdi-36px" target="_blank" style="color: #5F5F5F;"></a>
+				<a href="https://twitter.com/therealnorman_" class="credit__contact_twitter mdi mdi-twitter mdi-36px" target="_blank" style="color: #79BEF1;"></a>
+			</div>
+			<div class="credit__author">
+				<span class="credit__author_made">Made with <i class="mdi mdi-coffee mdi-18px"></i> and <i class="mdi mdi-headphones mdi-18px"></i></span>
+			</div>
+		</div>
+	</footer>
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxop6CqXz61qbdMAllw9qVLWfmdf-TmP8"></script>
+	<script src="public/js/index.js"></script>
+
+
+</body>
+</html>

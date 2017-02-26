@@ -1,0 +1,658 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&subset=cyrillic-ext';
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  background: #fff;
+}
+
+.vueApp {
+  position: relative;
+  margin: 0 auto;
+  clear: both;
+}
+
+.vueApp__left {
+  float: left;
+  width: 49.5vw;
+  height: 95.5vh;
+  overflow: auto;
+  box-shadow: 0px 5px 27.2px 4.8px rgba(70,72,74,0.12);
+}
+
+.vueApp__left::-webkit-scrollbar {
+  width: 8px;
+}
+
+.vueApp__left::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #fff;
+}
+
+.vueApp__left::-webkit-scrollbar-thumb {
+  background-color: #e4e6e8;
+  border-radius: 13px;
+}
+
+.vueApp__right {
+  float: right;
+  width: 49.1vw;
+  height: 95.5vh;
+  overflow: auto;
+}
+
+.vueApp__right::-webkit-scrollbar {
+  width: 8px;
+}
+
+.vueApp__right::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #fff;
+}
+
+.vueApp__right::-webkit-scrollbar-thumb {
+  background-color: #e4e6e8;
+  border-radius: 13px;
+}
+
+.card {
+  display: inline-block;
+  position: relative;
+  margin: 10px 7px;
+  max-width: 435px;
+  padding: 5px 11px 13px 11px;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card__img {
+  width: 415px;
+  height: 325px;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  margin: 0 auto;
+  border-radius: 11px;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+  overflow: hidden;
+}
+
+.card__img:hover {
+  opacity: 0.8;
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+  box-shadow: 2px 3px 10px rgba(0,0,0,0.7);
+}
+
+.card__img_title {
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.25;
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 13px;
+  z-index: 110;
+}
+
+.card__img_price {
+  color: #fff;
+  line-height: 1.2;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+}
+
+.price__euro {
+  font-size: 14px;
+}
+
+.price__num {
+  font-size: 24px;
+}
+
+footer {
+  position: relative;
+  display: block;
+  text-align: center;
+  background: #f5f5f5;
+  z-index: 5;
+  clear: both;
+}
+
+.credit {
+  display: block;
+  position: inherit;
+}
+
+.credit__contact {
+  padding: 7px 0;
+}
+
+.credit__author {
+  padding: 3px 0 7px 0;
+}
+
+.credit__author_made {
+  color: #5f5f5f;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.vueApp__right_tabs {
+  width: 100%;
+  display: inline-block;
+}
+
+.tabsBlock {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabsBlock__tab {
+  background: #f7f9fa;
+  width: 49%;
+  display: inline-block;
+  text-align: center;
+}
+
+.tabsBlock__tab a {
+  padding: 20px 110px;
+  display: block;
+  font-size: 16px;
+  color: #4c4c4c;
+  -webkit-transition: all linear 0.15s;
+  transition: all linear 0.15s;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.active {
+  background: #fff;
+}
+
+.vueApp__right_tabContent {
+  display: block;
+  position: relative;
+  background: #f7f9fa;
+}
+
+.tabContent__block {
+  display: block;
+  background: #fff;
+  width: 100%;
+  padding: 25px 0;
+  position: relative;
+  text-align: right;
+  clear: both;
+}
+
+.tabContent__block_tags {
+  text-align: left;
+  display: inline-block;
+  float: left;
+  margin-left: 20px;
+}
+
+.tabContent__block span {
+  position: inherit;
+  font-size: 13px;
+  color: #28373e;
+  line-height: 1.846;
+  margin-right: 60px;
+}
+
+.tabContent__flat {
+  position: inherit;
+  text-align: center;
+}
+
+.header {
+  display: block;
+  position: relative;
+  z-index: 50;
+  box-shadow: 0 1px 1px rgba(76,76,76,0.75);
+  margin: 1px 0;
+}
+
+.header__logo {
+  padding: 17px 30px 14px 30px;
+  position: inherit;
+  left: 0;
+  display: inline-block;
+}
+
+.header__button {
+  position: absolute;
+  right: 60px;
+  top: 12px;
+  display: inline-block;
+}
+
+.header__button a {
+  padding: 6.35px 29px;
+  display: block;
+  color: #fff;
+  background: #f3781e;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.846;
+  text-align: center;
+  text-decoration: none;
+}
+
+.amenities {
+  display: block;
+  float: left;
+  padding: 35px 25px;
+}
+
+.notClickable {
+  padding: 0 !important;
+}
+
+.searchBox {
+  display: block;
+  position: relative;
+  width: 750px;
+  float: right;
+  padding-top: 35px;
+}
+
+.searchBox__input {
+  display: block;
+  width: 725px;
+  height: 38px;
+  font-size: 13px;
+  font-family: "Open Sans";
+  color: #28373e;
+  line-height: 1.846;
+  padding: 10px 0 10px 40px;
+  border: 1px solid #e1e6e8;
+  border-radius: 4px;
+  background-image: url("../img/searchIcon.png");
+  background-color: #fff;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  box-shadow: 0px 1px 17.64px 3.36px rgba(0,0,0,0.07);
+  margin: 0 auto;
+  text-overflow: ellipsis;
+}
+
+.searchBox__input[type="text"] {
+  border: 1px solid #e1e6e8;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0px 1px 17.64px 3.36px rgba(0,0,0,0.07);
+}
+
+.searchBox__title {
+  display: block;
+  width: 725px;
+  margin: 0 auto;
+  font-size: 13px;
+  font-family: "Open Sans";
+  color: #67808d;
+  line-height: 1.846;
+}
+
+.facilitie {
+  display: block;
+  position: relative;
+  float: right;
+  width: 750px;
+  margin: 0 auto;
+}
+
+.facilitie__items {
+  display: block;
+  position: inherit;
+  width: 736px;
+  margin: 0 auto;
+}
+
+.facilitie__sep {
+  opacity: 0.3;
+  width: 80%;
+  background: #eff3f5;
+}
+
+.items {
+  display: block;
+}
+
+.items__title {
+  display: block;
+  padding: 25px 10px 13px;
+  font-size: 13px;
+  font-family: "Open Sans";
+  vertical-align: middle;
+  color: #67808d;
+  line-height: 1.846;
+  text-decoration: none;
+}
+
+.items__title img {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.items__block {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.items__block input[type="checkbox"].items__block_checkbox {
+  position: absolute;
+  z-index: -1000;
+  left: -1000px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.items__block input[type=checkbox].items__block_checkbox + label.items__block_label {
+  padding-left: 35px;
+  height: 20px;
+  display: inline-block;
+  margin: 10px 10px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.items__block input[type=checkbox].items__block_checkbox:checked + label.items__block_label {
+  background-position: 0 -20px;
+}
+
+.items__block label.items__block_label {
+  background-image: url("../img/checkbox.png");
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.items__block_label {
+  display: inline-block;
+  width: 145px !important;
+  font-size: 13px;
+  font-family: "Open Sans";
+  color: #28373e !important;
+  line-height: 1.846;
+  margin-right: 40px !important;
+  cursor: pointer !important;
+}
+
+.checked {
+  background: url("../img/checked.png") 0 0 no-repeat !important;
+}
+
+@media screen and (device-width: 768px) {
+  .vueApp__right {
+    overflow-x: hidden;
+  }
+
+  .card__img {
+    width: 315px;
+    height: 225px;
+  }
+
+  .tabsBlock__tab a {
+    padding: 20px 35px;
+  }
+
+  .tabContent__block span {
+    margin-right: 30px;
+  }
+
+  .tabContent__map {
+    width: 100%;
+    height: 86%;
+  }
+
+  #map {
+    height: 100% !important;
+  }
+
+  .amenities {
+    padding: 20px;
+  }
+
+  .searchBox {
+    width: 95%;
+    padding-top: 5px;
+  }
+
+  .searchBox__title {
+    width: 90%;
+    margin: 0;
+  }
+
+  .searchBox__input {
+    width: 90%;
+    margin: 0;
+  }
+
+  .facilitie {
+    width: 95%;
+  }
+
+  .facilitie__items {
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .facilitie__sep {
+    margin-top: 20px;
+  }
+
+  .header__button {
+    right: 15px;
+  }
+}
+
+@media screen and (max-device-width: 1024px) {
+  .vueApp__right {
+    overflow-x: hidden;
+  }
+
+  .card__img {
+    width: 315px;
+    height: 225px;
+  }
+
+  .tabsBlock__tab a {
+    padding: 20px 35px;
+  }
+
+  .tabContent__block span {
+    margin-right: 30px;
+  }
+
+  .tabContent__map {
+    width: 100%;
+    height: 86%;
+  }
+
+  #map {
+    height: 100% !important;
+  }
+
+  .amenities {
+    padding: 20px;
+  }
+
+  .searchBox {
+    width: 95%;
+    padding-top: 5px;
+  }
+
+  .searchBox__title {
+    width: 95%;
+    margin: 0;
+  }
+
+  .searchBox__input {
+    width: 95%;
+    margin: 0;
+  }
+
+  .facilitie {
+    width: 95%;
+  }
+
+  .facilitie__items {
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .facilitie__sep {
+    margin-top: 20px;
+  }
+
+  .header__button {
+    right: 15px;
+  }
+}
+
+@media screen and (device-width: 1366px) and (orientation: landscape) {
+  .vueApp__right {
+    overflow-x: hidden;
+  }
+
+  .card__img {
+    width: 295px;
+    height: 235px;
+  }
+
+  .card__img_title {
+    width: 220px;
+  }
+
+  .tabContent__map {
+    width: 100%;
+    height: 81.5%;
+  }
+
+  #map {
+    height: 100% !important;
+  }
+
+  .amenities {
+    padding: 20px;
+  }
+
+  .searchBox {
+    width: 95%;
+    padding-top: 5px;
+  }
+
+  .searchBox__title {
+    width: 95%;
+    margin: 0;
+  }
+
+  .searchBox__input {
+    width: 95%;
+    margin: 0;
+  }
+
+  .facilitie {
+    width: 95%;
+  }
+
+  .facilitie__items {
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .facilitie__sep {
+    margin-top: 20px;
+  }
+
+  .header__button {
+    right: 15px;
+  }
+}
+
+@media screen and (min-device-width: 1920px) {
+  .vueApp__right {
+    overflow-x: hidden;
+  }
+
+  .card__img {
+    width: 415px;
+    height: 325px;
+  }
+
+  .card__img_title {
+    width: 220px;
+  }
+
+  .tabContent__map {
+    width: 100%;
+    height: 81.5%;
+  }
+
+  #map {
+    height: 100% !important;
+  }
+
+  .amenities {
+    padding: 20px;
+  }
+
+  .searchBox {
+    width: 95%;
+    padding-top: 5px;
+  }
+
+  .searchBox__title {
+    width: 95%;
+    margin: 0;
+  }
+
+  .searchBox__input {
+    width: 95%;
+    margin: 0;
+  }
+
+  .facilitie {
+    width: 95%;
+  }
+
+  .facilitie__items {
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .facilitie__sep {
+    margin-top: 20px;
+  }
+
+  .header__button {
+    right: 15px;
+  }
+}
